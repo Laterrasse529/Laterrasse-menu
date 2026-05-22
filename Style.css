@@ -1,1 +1,173 @@
+:root{
+  --bg:#F7F4EF;
+  --card:#FFFFFF;
+  --text:#2B2B2B;
+  --green:#66785F;
+  --beige:#C7B299;
+}
 
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#1E1E1E;
+    --card:#2B2B2B;
+    --text:#F7F4EF;
+  }
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Montserrat',sans-serif;
+  transition:.3s;
+}
+
+.hero{
+  padding:40px 20px;
+  text-align:center;
+  animation:fadeIn 1s ease;
+}
+
+.logo{
+  width:130px;
+  margin-bottom:20px;
+}
+
+h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:52px;
+  letter-spacing:4px;
+  color:var(--green);
+}
+
+.subtitle{
+  letter-spacing:5px;
+  margin-bottom:25px;
+  color:var(--beige);
+}
+
+.quote,
+.quote-en{
+  max-width:700px;
+  margin:auto;
+  line-height:1.8;
+  margin-bottom:15px;
+  padding:0 20px;
+}
+
+.info-box{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:40px;
+}
+
+.info-item{
+  background:var(--card);
+  padding:25px;
+  border-radius:20px;
+  width:220px;
+  box-shadow:0 8px 25px rgba(0,0,0,.05);
+}
+
+.info-item i{
+  font-size:28px;
+  color:var(--green);
+  margin-bottom:15px;
+}
+
+.sticky-nav{
+  position:sticky;
+  top:0;
+  background:rgba(255,255,255,.8);
+  backdrop-filter:blur(10px);
+  padding:15px;
+  text-align:center;
+  z-index:1000;
+}
+
+.sticky-nav a{
+  text-decoration:none;
+  color:var(--green);
+  font-weight:600;
+}
+
+.menu-container{
+  padding:30px 20px 100px;
+  max-width:900px;
+  margin:auto;
+}
+
+.category{
+  background:var(--card);
+  margin-bottom:25px;
+  border-radius:20px;
+  padding:25px;
+  box-shadow:0 8px 25px rgba(0,0,0,.05);
+  animation:slideUp .6s ease;
+}
+
+.category h2{
+  margin-bottom:20px;
+  color:var(--green);
+}
+
+.menu-item{
+  display:flex;
+  justify-content:space-between;
+  padding:12px 0;
+  border-bottom:1px dashed #ddd;
+}
+
+.item-name{
+  font-weight:500;
+}
+
+.item-en{
+  font-size:13px;
+  opacity:.7;
+}
+
+.price{
+  color:var(--green);
+  font-weight:600;
+}
+
+.whatsapp-btn{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:65px;
+  height:65px;
+  border-radius:50%;
+  background:#25D366;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  font-size:34px;
+  text-decoration:none;
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  opacity:.7;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes slideUp{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
