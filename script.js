@@ -42,16 +42,14 @@ async function loadMenu() {
 
   } catch (error) {
 
+    console.error(error);
+
     document.getElementById("menu").innerHTML = `
       <div class="loading">
         Impossible de charger le menu.
       </div>
     `;
-
-    console.error(error);
-
   }
-
 }
 
 function renderMenu(menu) {
@@ -62,34 +60,86 @@ function renderMenu(menu) {
 
   for (let category in menu) {
 
-    const section = document.createElement("div");
+    const categoryDiv = document.createElement("div");
 
-    section.className = "category";
+    categoryDiv.className = "accordion";
 
-    section.innerHTML = `
-      <h2>${category}</h2>
-    `;
+    let itemsHTML = "";
 
     menu[category].forEach(item => {
 
-      section.innerHTML += `
+      itemsHTML += `
         <div class="menu-item">
 
-          <div>
-            <div class="item-name">${item.nameFR}</div>
-            <div class="item-en">${item.nameEN}</div>
+          <div class="menu-left">
+
+            <div class="item-name">
+              ${item.nameFR}
+            </div>
+
+            <div class="item-en">
+              ${item.nameEN}
+            </div>
+
           </div>
 
-          <div class="price">${item.price}</div>
+          <div class="price">
+            ${item.price}
+          </div>
 
         </div>
       `;
+    });
+
+    categoryDiv.innerHTML = `
+
+      <button class="accordion-header">
+
+        <span>${category}</span>
+
+        <span class="arrow">⌄</span>
+
+      </button>
+
+      <div class="accordion-content">
+
+        ${itemsHTML}
+
+      </div>
+
+    `;
+
+    container.appendChild(categoryDiv);
+  }
+
+  activateAccordion();
+}
+
+function activateAccordion() {
+
+  const headers = document.querySelectorAll(".accordion-header");
+
+  headers.forEach(header => {
+
+    header.addEventListener("click", () => {
+
+      const content = header.nextElementSibling;
+
+      header.classList.toggle("active");
+
+      if (content.style.maxHeight) {
+
+        content.style.maxHeight = null;
+
+      } else {
+
+        content.style.maxHeight = content.scrollHeight + "px";
+
+      }
 
     });
 
-    container.appendChild(section);
-
-  }
+  });
 
 }
 
