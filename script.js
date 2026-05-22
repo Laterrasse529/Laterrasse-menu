@@ -1,45 +1,69 @@
-const sheetURL = "TON_LIEN_GOOGLE_SHEET_CSV";
+const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTvxh3BCH27lCxRDCGpOnVVMJ4UmBWLP4E8Cc7OhrpAbnxAp8fTSbX0BdLPy0MKoMinU0NyP6ZgTciK/pub?output=csv";
 
-async function loadMenu(){
+async function loadMenu() {
 
-  const response = await fetch(sheetURL);
-  const data = await response.text();
+  try {
 
-  const rows = data.split("\n").slice(1);
+    const response = await fetch(sheetURL);
+    const data = await response.text();
 
-  const menu = {};
+    const rows = data.split("\n").slice(1);
 
-  rows.forEach(row => {
+    const menu = {};
 
-    const cols = row.split(",");
+    rows.forEach(row => {
 
-    const category = cols[0];
-    const nameFR = cols[1];
-    const nameEN = cols[2];
-    const price = cols[3];
+      if (!row.trim()) return;
 
-    if(!menu[category]){
-      menu[category] = [];
-    }
+      const cols = row.split(",");
 
-    menu[category].push({
-      nameFR,
-      nameEN,
-      price
+      if (cols.length < 4) return;
+
+      const category = cols[0]?.trim();
+      const nameFR = cols[1]?.trim();
+      const nameEN = cols[2]?.trim();
+      const price = cols[3]?.trim();
+
+      if (!category || !nameFR) return;
+
+      if (!menu[category]) {
+        menu[category] = [];
+      }
+
+      menu[category].push({
+        nameFR,
+        nameEN,
+        price
+      });
+
     });
 
-  });
+    renderMenu(menu);
 
-  renderMenu(menu);
+  } catch (error) {
+
+    document.getElementById("menu").innerHTML = `
+      <div class="loading">
+        Impossible de charger le menu.
+      </div>
+    `;
+
+    console.error(error);
+
+  }
+
 }
 
-function renderMenu(menu){
+function renderMenu(menu) {
 
   const container = document.getElementById("menu");
 
-  for(let category in menu){
+  container.innerHTML = "";
+
+  for (let category in menu) {
 
     const section = document.createElement("div");
+
     section.className = "category";
 
     section.innerHTML = `
@@ -60,10 +84,13 @@ function renderMenu(menu){
 
         </div>
       `;
+
     });
 
     container.appendChild(section);
+
   }
+
 }
 
 loadMenu();
