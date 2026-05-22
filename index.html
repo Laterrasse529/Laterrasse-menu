@@ -1,99 +1,95 @@
+name=index.html
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+  <meta name="description" content="La Terrasse Café & Resto à Korba, Tunisia. Découvrez notre menu et ambiance conviviale.">
   <title>La Terrasse Café & Resto</title>
-
   <link rel="stylesheet" href="style.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-
   <script src="https://kit.fontawesome.com/a2e0e6ad65.js" crossorigin="anonymous"></script>
-
+  <script src="script.js" defer></script>
 </head>
-
 <body>
+  <div class="page-wrapper">
+    <header class="main-header">
+      <div class="logo-container">
+        <img src="logo.png" class="logo-img" alt="La Terrasse Logo">
+      </div>
+      <h1 class="site-title">LA TERRASSE</h1>
+      <div class="subtitle-bar">
+        <span>CAFÉ & RESTO</span>
+      </div>
+      <blockquote class="fr-quote">
+        <span class="quote-special">&#8220;</span>
+        À La Terrasse, chaque café raconte une rencontre, <br>
+        chaque plat partage un moment.
+        <span class="quote-special">&#8221;</span>
+      </blockquote>
+      <blockquote class="en-quote">
+        At La Terrasse, every coffee tells a story,<br>
+        and every dish is made to be shared.
+      </blockquote>
+      <div class="info-cards">
+        <div class="info-card">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <div class="info-header">ADRESSE</div>
+            <div class="info-content">HVG7+J62,<br>Korba, Tunisia</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <i class="far fa-clock"></i>
+          <div>
+            <div class="info-header">HORAIRES</div>
+            <div class="info-content">7h - 01h<br>Tous les jours</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <i class="fas fa-wifi"></i>
+          <div>
+            <div class="info-header">WIFI</div>
+            <div class="info-content">Détails à venir</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <i class="fas fa-qrcode"></i>
+          <div>
+            <div class="info-header">SCANNNEZ<br>NOTRE MENU</div>
+          </div>
+        </div>
+      </div>
+    </header>
 
-<header class="hero">
+    <main>
+      <nav class="menu-list" aria-label="Menu Categories">
+        <!-- Categories rendered by JS -->
+      </nav>
 
-  <img src="logo.png" class="logo" alt="La Terrasse Logo">
+      <section id="menu-details" class="menu-details">
+        <!-- Items rendered by JS -->
+      </section>
+    </main>
 
-  <h1>LA TERRASSE</h1>
-
-  <p class="subtitle">CAFÉ & RESTO</p>
-
-  <p class="quote">
-    “À La Terrasse, chaque café raconte une rencontre, chaque plat partage un moment.”
-  </p>
-
-  <p class="quote-en">
-    “At La Terrasse, every coffee tells a story, and every dish is made to be shared.”
-  </p>
-
-  <div class="info-box">
-
-    <div class="info-item">
-      <i class="fas fa-map-marker-alt"></i>
-      <h3>Adresse</h3>
-      <p>HVG7+J62, Korba, Tunisia</p>
-    </div>
-
-    <div class="info-item">
-      <i class="far fa-clock"></i>
-      <h3>Horaires</h3>
-      <p>7h - 01h</p>
-    </div>
-
-    <div class="info-item">
-      <i class="fas fa-wifi"></i>
-      <h3>WiFi</h3>
-      <p>Bientôt disponible</p>
-    </div>
-
+    <footer>
+      <div class="merci-area">
+        <span>Merci <i class="fas fa-heart"></i></span>
+      </div>
+      <div class="footer-line">
+        Merci de choisir La Terrasse.<br>
+        Thank you for choosing La Terrasse.
+      </div>
+      <div class="footer-bar">
+        <span>LA TERRASSE CAFÉ & RESTO <i class="fas fa-heart"></i></span>
+      </div>
+      <a href="https://wa.me/yourNumber" class="whatsapp-btn" aria-label="Contact WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="wa-text">WhatsApp</span>
+      </a>
+    </footer>
   </div>
-
-</header>
-
-<nav class="sticky-nav">
-  <a href="#menu">MENU</a>
-</nav>
-
-<section id="menu" class="menu-container">
-
-  <div class="loading">
-    Chargement du menu...
-  </div>
-
-</section>
-
-<a href="#" class="whatsapp-btn">
-  <i class="fab fa-whatsapp"></i>
-</a>
-
-<section class="map-section">
-
-  <iframe
-    src="https://www.google.com/maps?q=HVG7+J62,+Korba,+Tunisia&output=embed"
-    width="100%"
-    height="300"
-    style="border:0;"
-    allowfullscreen=""
-    loading="lazy">
-  </iframe>
-
-</section>
-
-<footer>
-  <p>Merci de choisir La Terrasse.</p>
-  <p>Thank you for choosing La Terrasse.</p>
-</footer>
-
-<script src="script.js"></script>
-
 </body>
 </html>
